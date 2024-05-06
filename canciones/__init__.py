@@ -1,11 +1,11 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 with app.app_context():
 
-  from db import init_app
-  init_app(app)
+  from . import db
+  db.init_app(app)
 #importo esa y la llamo#
 
 
@@ -13,8 +13,14 @@ with app.app_context():
 def hello():
     return 'Hello, World!'
 
-@app.route('/')
-def ac():
-    
-    return render.template("actor.html", actor=lista_de_resultados)
+@app.route('/canciones')
+def canciones():
+    base_de_datos = db.get_db()
+    consulta = """ 
+        SELECT last_name,first_name FROM tracks
+        ORDER BY last_name, first_name;?
+    """
+    resultado = base_de_datos.execute(consulta)
+    lista_de_resultado = resultado.fetchall()
+    return render_template("cantantes.html", cantantes= lista_de_resultado)
 
