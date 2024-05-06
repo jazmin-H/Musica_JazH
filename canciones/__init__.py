@@ -13,5 +13,8 @@ with app.app_context():
 def hello():
     return 'Hello, World!'
 
-
+@app.route('/')
+def ac():
+    
+    return render.template("actor.html", actor=lista_de_resultados)
 
