@@ -13,14 +13,15 @@ with app.app_context():
 def hello():
     return 'Hello, World!'
 
-@app.route('/canciones')
+@app.route('/cantantes')
 def canciones():
-    base_de_datos = db.get_db()
-    consulta = """ 
-        SELECT last_name,first_name FROM tracks
-        ORDER BY last_name, first_name;?
+    consulta1 = """ 
+           SELECT name FROM traks
     """
-    resultado = base_de_datos.execute(consulta)
+    
+    base_de_datos = db.get_db()
+    resultado = base_de_datos.execute(consulta1)
     lista_de_resultado = resultado.fetchall()
-    return render_template("cantantes.html", cantantes= lista_de_resultado)
 
+    pagina = render_template("cantantes.html", cantantes = lista_de_resultado)
+    return pagina
