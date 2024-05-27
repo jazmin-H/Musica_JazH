@@ -9,19 +9,12 @@ with app.app_context():
 #importo esa y la llamo#
 
 
-@app.route('/')
-def hello():
-    return 'Hello, World!'
+from . import bandas
+app.register_blueprint(bandas.bp)
 
-@app.route('/cantantes')
-def canciones():
-    consulta1 = """ 
-           SELECT name FROM traks
-    """
-    
-    base_de_datos = db.get_db()
-    resultado = base_de_datos.execute(consulta1)
-    lista_de_resultado = resultado.fetchall()
 
-    pagina = render_template("cantantes.html", cantantes = lista_de_resultado)
-    return pagina
+from . import canciones
+app.register_blueprint(canciones.bp)
+
+from . import generos
+app.register_blueprint(generos.bp)
