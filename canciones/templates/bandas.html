@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>lista</title>
+    <title>Bandas</title>
 </head>
 <body>
     <h1>bandas</h1>
     <ul>
-        {% for bandas in bandas %}
-        <li>({{<album></album> }} )</li>
+        {% for banda in bandas %}
+        <li>{{ banda['Name'] }} </li>
         {% endfor %}
     </ul>
 

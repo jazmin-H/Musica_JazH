@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>lista</title>
+    <title>Generos</title>
 </head>
 <body>
     <h1>generos</h1>
     <ul>
-        {% for genero in genres %}
-        <li>({{ genero ["Name"] }} )</li>
+        {% for genero in generos %}
+        <li>{{ genero ["Name"] }} </li>
         {% endfor %}
     </ul>
 </body>

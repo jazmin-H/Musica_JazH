@@ -1,13 +1,10 @@
 from flask import Flask, render_template, Blueprint
 from . import db
 
-app = Flask(__name__)
-
-
 bp = Blueprint('canciones', __name__, url_prefix='/canciones')
 #importo esa y la llamo#
 
-@app.route('/')
+@bp.route('/')
 def canciones():
     consulta_canciones = """
       select Name from tracks 
