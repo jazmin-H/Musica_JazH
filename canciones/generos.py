@@ -26,6 +26,10 @@ def detalle(id):
 
           """
     
+    consulta_detalle_generos = """
+            
+          """
+    
     base_de_datos = db.get_db()
     resultado = base_de_datos.execute(consulta_generos, (id,))
     lista_de_generos = resultado.fetchall()
