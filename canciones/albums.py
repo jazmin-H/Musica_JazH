@@ -6,7 +6,7 @@ bp = Blueprint('albums', __name__, url_prefix='/albums')
 @bp.route('/')
 def albums():
     consulta_albums = """
-      select Title from albums 
+      select Title , AlbumId from albums 
     """
     
     base_de_datos = db.get_db()

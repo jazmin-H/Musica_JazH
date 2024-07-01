@@ -4,7 +4,7 @@ from . import db
 bp = Blueprint('artists', __name__, url_prefix='/artists')
   
 @bp.route('/')
-def artists():
+def artistas():
     consulta_artista = """
              select name, ArtistId from artists
           """
