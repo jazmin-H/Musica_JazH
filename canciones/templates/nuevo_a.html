@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Nuevo a{% endblock %}
+{% block header %} Nuevo a{% endblock %}
+{% block content %}
+         <form method="POST">
+         <label for="name">Nuevo a: </label>
+         <input type="text" name="name" id="name">
+         <input type="submit" value="Guardar">
+{% endblock %}

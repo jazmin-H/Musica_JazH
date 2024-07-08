@@ -39,7 +39,7 @@ def detalle(id):
     return pagina
 
 @bp.route('/new', methods=('GET', 'POST'))
-def create():
+def new():
     if request.method == 'POST':
         name = request.form['name']
         con = db.get_db()
@@ -49,4 +49,6 @@ def create():
         con.execute(consulta, (name, ))
         con.commit()
         return redirect(url_for('artists.artistas'))
-    return render_template('nuevo_a.html' )
+    else :
+        pagina = render_template('nuevo_a.html')
+        return pagina
