@@ -49,4 +49,4 @@ def create():
         con.execute(consulta, (name, ))
         con.commit()
         return redirect(url_for('artists.artistas'))
-    return render_template('nuevo_a.html')
+    return render_template('nuevo_a.html' )
