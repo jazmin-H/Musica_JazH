@@ -2,5 +2,11 @@
 {% block title %}Lista de canciones{% endblock %}
 {% block header %}cancion{% endblock %}
 {% block content %}
-       
+<ul>
+    {% for cancion in cancion %}
+      <li>
+        <a href="{{ url_for('cancion.detalle', id=cancion['TrackId'])}}">{{cancion["Name"]}}</a>
+      </li>
+    {% endfor %}
+</ul>
 {% endblock %}
